@@ -7,6 +7,7 @@ use std::time::Duration;
 fn main() {
     let (tx, rx) = mpsc::channel();
 
+    // 为了新线程使用来自于主线程的数据，新线程的必报获取所需要的值，闭包职能是move修饰
     thread::spawn(move || {
         let val = String::from("hi");
         tx.send(val).unwrap(); // tx move，rx还在主线程

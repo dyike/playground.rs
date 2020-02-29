@@ -15,5 +15,6 @@ fn main() {
         thread::sleep(Duration::from_millis(1));
     }
 
+    // 使用join等待所有的线程结束
     handle.join().unwrap();
 }
